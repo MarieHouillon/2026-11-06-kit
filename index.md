@@ -1,19 +1,19 @@
 ---
 # More detailed instructions (including how to fill these variables for an # online workshop) are available at https://carpentries.github.io/workshop-template/customization/index.html#yaml-header
 # Required variables
-venue: "FIXME"        # brief name of the institution that hosts the workshop without address (e.g., "Euphoric State University")
-address: "FIXME"      # full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria"), videoconferencing URL, or 'online'
-country: "FIXME"      # lowercase two-letter ISO country code such as "fr" (see https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes) for the institution that hosts the workshop
-language: "FIXME"     # lowercase two-letter ISO language code such as "fr" (see https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for the workshop
-latitude: "FIXME"     # decimal latitude of workshop venue - this should be a number greater than or equal to -90, and less than or equal to 90 (use https://www.latlong.net/)
-longitude: "FIXME"    # decimal longitude of the workshop venue - this should be a number greater than or equal to -180, and less than or equal to 180 (use https://www.latlong.net)
-humandate: "FIXME"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
-humantime: "FIXME"    # human-readable times for the workshop e.g., "9:00 am - 4:30 pm CEST (7:00 am - 2:30 pm UTC)"
-startdate: FIXME      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
-enddate: FIXME        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
-instructor: ["instructor one", "instructor two"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
-helper: ["helper one", "helper two"]     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
-email: ["first@example.org","second@example.org"]    # boxed, comma-separated list of contact email addresses for the host, lead instructor, or whoever else is handling questions, like ["marlyn.wescoff@example.org", "fran.bilas@example.org", "ruth.lichterman@example.org"]
+venue: "Karlsruhe Institute of Technology"        # brief name of the institution that hosts the workshop without address (e.g., "Euphoric State University")
+address: "Building 30.33 Seminarraum 517"      # full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria"), videoconferencing URL, or 'online'
+country: "de"      # lowercase two-letter ISO country code such as "fr" (see https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes) for the institution that hosts the workshop
+language: "en"     # lowercase two-letter ISO language code such as "fr" (see https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for the workshop
+latitude: "49.01222502780395"     # decimal latitude of workshop venue - this should be a number greater than or equal to -90, and less than or equal to 90 (use https://www.latlong.net/)
+longitude: "8.413014727305006"    # decimal longitude of the workshop venue - this should be a number greater than or equal to -180, and less than or equal to 180 (use https://www.latlong.net)
+humandate: "Nov 6 and Nov 13, 2026"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
+humantime: "9:00 am - 5:00 pm CET"    # human-readable times for the workshop e.g., "9:00 am - 4:30 pm CEST (7:00 am - 2:30 pm UTC)"
+startdate: 2026-11-06     # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
+enddate: 2026-11-13        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
+instructor: ["Tobias Gerach"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
+helper: []     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
+email: ["tobias.gerach@kit.edu"]    # boxed, comma-separated list of contact email addresses for the host, lead instructor, or whoever else is handling questions, like ["marlyn.wescoff@example.org", "fran.bilas@example.org", "ruth.lichterman@example.org"]
 # Optional variables
 collaborative_notes:  # URL for the workshop collaborative notes, e.g. an Etherpad or Google Docs document (e.g., https://pad.carpentries.org/2015-01-01-euphoria)
 eventbrite:           # alphanumeric key for Eventbrite registration, e.g., "1234567890AB" (if Eventbrite is being used)
@@ -208,21 +208,6 @@ address.
   <div class="card-body">
     <dl class="mb-0">
     <div class="row">
-        <dt class="col-sm-2 col-md-2 py-2 px-3 bg-body-light text-body-secondary fw-bold">Who</dt>
-        <dd class="col py-2 px-3 mx-0 mb-0">
-            {% comment %}
-            AUDIENCE
-
-            Explain who your audience is.  (In particular, tell readers if the
-            workshop is only open to people from a particular institution.
-            {% endcomment %}
-            {% assign who_file = site.carpentry | append: '/who.html' %}
-            {% if isOfficial %}
-            {% include {{ who_file }} %}
-            {% endif %}    
-        </dd>
-    </div>
-    <div class="row">
         <dt class="col-sm-2 col-md-2 py-2 px-3 bg-body-light text-body-secondary fw-bold">Where</dt>
         <dd class="col py-2 px-3 mx-0 mb-0">
             {% if page.latitude and page.longitude and online == "false" %}    
@@ -284,57 +269,6 @@ address.
             They should have a few specific software packages installed (listed <a href="#setup">below</a>).
             </p>
         </dd>  
-    </div>
-    <div class="row">
-        <dt class="col-sm-2 col-md-2 py-2 px-3 bg-body-light text-body-secondary fw-bold">Accessibility</dt>
-        <dd class="col py-2 px-3 mx-0 mb-0">
-            {% comment %}
-            ACCESSIBILITY
-
-            Modify the block below if there are any barriers to accessibility or special instructions.
-            {% endcomment %}
-
-            <p id="accessibility">
-            We are committed to making this workshop accessible to everybody. 
-            {% if online == "false" %}
-                The workshop organizers have checked that:
-                <br/>
-                <ul>
-                    <li>The room is wheelchair / scooter accessible.</li>
-                    <li>Accessible restrooms are available.</li>
-                </ul>
-            {% endif %}
-            </p>
-            <p>
-            We are dedicated to providing a positive and accessible learning environment for all. 
-            We do not require participants to provide documentation of disabilities or disclose any unnecessary personal information. 
-            However, we do want to help create an inclusive, accessible experience for all participants. 
-            We encourage you to share any information that would be helpful to make your Carpentries experience accessible.
-            To request accessibility support for this workshop, please fill out the 
-            <a href="https://carpentries.typeform.com/to/B2OSYaD0">accessibility support request form</a>.
-            If you have questions or need assistance with the accessibility support form please <a href="mailto:team@carpentries.org">email us</a>.
-            </p>
-            <p>
-            <a href="https://glosario.carpentries.org/">Glosario</a> is a multilingual glossary for computing and data science terms.
-            The glossary helps learners attend workshops and use our lessons to make sense of computational and programming jargon written in English by offering it in their native language.
-            Translating data science terms also provides a teaching tool for Carpentries Instructors to reduce barriers for their learners.
-            </p>
-        </dd>
-    </div>
-    <div class="row">
-        <dt class="col-sm-2 col-md-2 py-2 px-3 bg-body-light text-body-secondary fw-bold">Workshop Recordings</dt>
-        <dd class="col py-2 px-3 mx-0 mb-0">
-            {% comment %}
-            WORKSHOP RECORDINGS
-
-            Modify or remove the block below if you plan to record the workshop.
-            {% endcomment %}
-            <p id="recordings">
-            Carpentries workshops are designed to be interactive rather than lecture-based, with lessons that build upon one another.
-            To foster a positive online learning environment, we strongly recommend that participants join in real time.
-            As a result, workshop recordings are not recommended and may not be available to learners.
-            </p>
-        </dd>
     </div>
     <div class="row">
         <dt class="col-sm-2 col-md-2 py-2 px-3 bg-body-light text-body-secondary fw-bold">Contact</dt>
@@ -425,67 +359,6 @@ Note we also have a CodiMD (the open-source version of HackMD) available at http
 We will use this <a href="{{ page.collaborative_notes }}">collaborative document</a> for chatting, taking notes, and sharing URLs and bits of code.
 </p>
 {% endif %}
-
-
-{% comment %}
-SURVEYS - DO NOT EDIT SURVEY LINKS
-{% endcomment %}
-<div class="card mb-2">
-  <h5 class="card-header">Surveys</h5>
-  <div class="card-body">
-    <div class="row">
-    <div class="col-sm-6">
-        <div class="card text-center">
-            <div class="card-body">
-                <h5 class="card-title">Pre-Workshop Survey</h5>
-                <p class="card-text">Please fill out this survey <strong>before attending</strong> the workshop.</p>
-                {% if site.carpentry == "incubator" %}
-                <a href="{{ site.incubator_pre_survey }}">Pre-workshop Survey</a>
-                {% elsif site.incubator_pre_survey %}
-                <div class="alert alert-danger">
-                WARNING: you have defined custom pre- and/or post-survey links for
-                a workshop not configured for The Carpentries Incubator
-                (the value of `curriculum` is not set to `incubator` in `_config.yml`).
-                Please comment out the `incubator_pre_survey` and `incubator_post_survey` fields
-                in `_config.yml` or, if this workshop is teaching a lesson in the Incubator,
-                change the value of `carpentry` to `incubator`.
-                </div>
-                {% elsif site.carpentry == "hpcc" %}
-                <a href="{{ site.hpcc_pre_survey }}{{ site.github.project_title }}" class="btn btn-primary">Fill Out the Pre-Workshop Survey</a>
-                {% else %}
-                <a href="{{ site.pre_survey }}{{ site.github.project_title }}" class="btn btn-primary">Fill Out the Pre-Workshop Survey</a>
-                {% endif %}
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <div class="card text-center">
-            <div class="card-body">
-                <h5 class="card-title">Post-Workshop Survey</h5>
-                <p class="card-text">Please fill out this survey <strong>before you leave</strong> the workshop.</p>
-                {% if site.carpentry == "incubator" %}
-                <a href="{{ site.incubator_post_survey }}">Post-workshop Survey</a>
-                {% elsif site.incubator_post_survey %}
-                <div class="alert alert-danger">
-                WARNING: you have defined custom pre- and/or post-survey links for
-                a workshop not configured for The Carpentries Incubator
-                (the value of `curriculum` is not set to `incubator` in `_config.yml`).
-                Please comment out the `incubator_pre_survey` and `incubator_post_survey` fields
-                in `_config.yml` or, if this workshop is teaching a lesson in the Incubator,
-                change the value of `carpentry` to `incubator`.
-                </div>
-                {% elsif site.carpentry == "hpcc" %}
-                <a href="{{ site.hpcc_post_survey }}{{ site.github.project_title }}" class="btn btn-primary">Fill Out the Pre-Workshop Survey</a>
-                {% else %}
-                <a href="{{ site.post_survey }}{{ site.github.project_title }}" class="btn btn-primary">Fill Out the Post-Workshop Survey</a>
-                {% endif %}
-            </div>
-        </div>
-    </div>
-    </div>
-  </div>
-</div>
-
 
 {% comment %}
 SCHEDULE
